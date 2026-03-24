@@ -1,0 +1,27 @@
+action: py3, msg: getenv
+cwd: /opt/vector-role
+cmd: /opt/vector-role/.tox/py3/bin/python -m pip install -rtox-requirements.txt
+Collecting ansible
+  WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out. (read timeout=15)",)': /packages/fd/f8/071905c6a67592d0852a9f340f6ab9226861eeeb97fdf4068642b22edcf3/ansible-4.10.0.tar.gz
+  WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out. (read timeout=15)",)': /packages/fd/f8/071905c6a67592d0852a9f340f6ab9226861eeeb97fdf4068642b22edcf3/ansible-4.10.0.tar.gz
+  WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out. (read timeout=15)",)': /packages/fd/f8/071905c6a67592d0852a9f340f6ab9226861eeeb97fdf4068642b22edcf3/ansible-4.10.0.tar.gz
+  Downloading ansible-4.10.0.tar.gz (36.8 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting ansible-lint
+  Downloading ansible_lint-5.4.0-py3-none-any.whl (119 kB)
+Collecting molecule
+  Downloading molecule-3.6.1-py3-none-any.whl (241 kB)
+Collecting molecule-docker
+  Downloading molecule_docker-1.1.0-py3-none-any.whl (16 kB)
+Collecting molecule-podman
+  Downloading molecule_podman-1.1.0-py3-none-any.whl (15 kB)
+Collecting docker
+  Downloading docker-5.0.3-py2.py3-none-any.whl (146 kB)
+Collecting pyyaml
+  Downloading PyYAML-6.0.1-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (677 kB)
+Collecting testinfra
+  Downloading testinfra-6.0.0-py3-none-any.whl (2.1 kB)
+Collecting pytest
+  Downloading pytest-7.0.1-py3-none-any.whl (296 kB)
+ERROR: Operation cancelled by user

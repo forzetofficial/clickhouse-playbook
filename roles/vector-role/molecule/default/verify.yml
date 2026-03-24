@@ -1,0 +1,53 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Check vector user exists
+      getent:
+        database: passwd
+        key: vector
+      register: vector_user
+
+    - name: Check Vector config directory exists
+      stat:
+        path: /etc/vector
+      register: config_dir
+
+    - name: Check Vector data directory exists
+      stat:
+        path: /var/lib/vector
+      register: data_dir
+
+    - name: Check Vector configuration file exists
+      stat:
+        path: /etc/vector/vector.toml
+      register: config_file
+
+    - name: Assert vector user exists
+      assert:
+        that:
+          - vector_user is success
+        success_msg: "Vector user exists"
+        fail_msg: "Vector user does not exist"
+
+    - name: Assert config directory exists
+      assert:
+        that:
+          - config_dir.stat.exists
+        success_msg: "Config directory exists"
+        fail_msg: "Config directory does not exist"
+
+    - name: Assert data directory exists
+      assert:
+        that:
+          - data_dir.stat.exists
+        success_msg: "Data directory exists"
+        fail_msg: "Data directory does not exist"
+
+    - name: Assert config file exists
+      assert:
+        that:
+          - config_file.stat.exists
+        success_msg: "Config file exists"
+        fail_msg: "Config file does not exist"

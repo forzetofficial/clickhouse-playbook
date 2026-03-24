@@ -1,0 +1,39 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: ubuntu-22-04
+    image: ubuntu:22.04
+    pre_build_image: true
+    privileged: true
+    command: /bin/bash -c "while true; do sleep 30; done"
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+
+provisioner:
+  name: ansible
+  playbooks:
+    converge: converge.yml
+    prepare: prepare.yml
+    verify: verify.yml
+  inventory:
+    group_vars:
+      all:
+        vector_version: "0.42.0"
+        vector_config_dir: "/etc/vector"
+        vector_data_dir: "/var/lib/vector"
+  config_options:
+    defaults:
+      become: true
+      become_user: root
+
+verifier:
+  name: ansible
+
+scenario:
+  name: default

@@ -1,0 +1,28 @@
+---
+galaxy_info:
+  role_name: vector_role
+  namespace: netol
+  author: netol
+  description: Install and configure Vector observability pipeline
+  company: Netology
+  license: MIT
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+    - name: EL
+      versions:
+        - "7"
+        - "8"
+    - name: OracleLinux
+      versions:
+        - "8"
+  galaxy_tags:
+    - vector
+    - observability
+    - monitoring
+    - logging
+
+dependencies: []

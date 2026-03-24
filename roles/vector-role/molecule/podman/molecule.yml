@@ -1,0 +1,30 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: ubuntu-22-04
+    image: ubuntu:22.04
+    pre_build_image: true
+    privileged: true
+    command: /sbin/init
+
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ../default/converge.yml
+    prepare: ../default/prepare.yml
+    verify: ../default/verify.yml
+  inventory:
+    group_vars:
+      all:
+        vector_version: "0.21.0"
+        vector_config_dir: "/etc/vector"
+        vector_data_dir: "/var/lib/vector"
+
+verifier:
+  name: ansible
+
+scenario:
+  name: podman

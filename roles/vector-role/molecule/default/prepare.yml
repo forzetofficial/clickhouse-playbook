@@ -1,0 +1,16 @@
+---
+- name: Prepare
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Install required packages
+      raw: apt update && apt install -y python3 python3-apt systemd sudo ca-certificates gnupg curl
+      changed_when: false
+
+    - name: Update CA certificates
+      raw: update-ca-certificates
+      changed_when: false
+
+    - name: Gather facts
+      setup:
+      when: ansible_facts == {}
